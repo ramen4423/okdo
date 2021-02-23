@@ -1,97 +1,95 @@
-
-.header-top{
+#logo-area{
 	display: flex;
 }
 
-.logo{
-	animation: logo 10s linear infinite;
-	position:absolute;
+#logo-area .custom-logo-link{
+	animation: logo-disa 10s linear 3;
+	position: absolute;
+	z-index:1001;
 }
 
-@keyframes logo{
+@keyframes logo-disa{
 	0%{
 	}
 	50%{
+		pointer-events: none;
 		opacity:1;
 	}
-	55%{
+	52%{
+		pointer-events: none;
 		opacity:0;
 	}
 	95%{
-	}
-	98%{
-		transform: scale(1.0);
+		pointer-events: none;
 		opacity:0;
 	}
-	99%{
-		transform: scale(1.1);
-	}
 	100%{
-		transform: scale(1.0);
+		pointer-events:auto;
 		opacity:1;
 	}
 
 }
 
-.pacman {
+.logo-back {
   width: 125px;
   height: 125px;
-  position: relative;
-  animation: pacmanm 10s linear infinite;
+	position:relative;
+	z-index:1000;
+  animation: logo-move 10s linear 3;
+	animation-fill-mode:forwards;
+	background-image: url(../img/logo-base.png);
+	background-size: contain;
 }
 
-@keyframes pacmanm {
+@keyframes logo-move {
   0% {
-    transform: 
-      translateX( 0 ) rotateY(0deg) ;
-			opacity:0;
+    transform: translateX( 0 ) rotateY(0deg) ;
+		opacity:0;
   }
   50% {
-    transform: 
-      translateX( 0 ) rotateY(0deg) ;
-			opacity:0;
+    transform: translateX( 0 ) rotateY(0deg) ;
+		opacity:0;
   }
   55% {
-    transform: 
-      translateX( 0 ) rotateY(0deg) ;
-			opacity:1;
+    transform: translateX( 0 ) rotateY(0deg) ;
+		opacity:1;
   }
   72.5% {
-    transform: 
-      translateX( calc(100% * 10) ) rotateY(0deg);
+    transform: translateX( calc(100% * 10) ) rotateY(0deg);
   }
   75% {
-    transform: 
-      translateX( calc(100% * 10) )
-      rotateY(180deg);
+    transform: translateX( calc(100% * 10) ) rotateY(180deg);
   }
   92.5% {
-    transform: 
-      translateX( 0% ) rotateY(180deg);
+    transform: translateX( 0% ) rotateY(180deg);
   }
   95% {
-    transform: 
-      translateX( 0 ) rotateY(0deg);
-			opacity:1;
+    transform: translateX( 0 ) rotateY(0deg);
+		opacity:1;
   }
   100% {
-    transform: 
-		translateX( 0 ) rotateY(0deg);
+    transform: translateX( 0 ) rotateY(0deg);
 		opacity:0;
   }
 }
 
-.pacman:before{
-  content: "";
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  border-top: calc(125px / 2) solid #ffb900;
-  border-right: calc(125px / 2) solid transparent;
-  border-bottom: calc(125px / 2) solid #ffb900;
-  border-left: calc(125px / 2) solid #ffb900;
-  border-radius: 50%;
-  animation: to-down .2s linear infinite;
+.logo-back:before,
+.logo-back:after {
+	content: "";
+	width: 125px;
+	height: 125px;
+	position: absolute;
+	background-size: contain;
+}
+
+.logo-back:before{
+	animation: to-down 0.2s linear infinite;
+	background-image: url(../img/logo-ue.png);
+}
+
+.logo-back:after {
+	animation: to-up 0.2s linear infinite;
+	background-image: url(../img/logo-shita.png);
 }
 
 @keyframes to-down {
@@ -105,21 +103,6 @@
     transform: rotate( 0deg );
   }
 }
-
-.pacman:after {
-  content: "";
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-top: calc(125px / 2) solid #ffb900;
-  border-right: calc(125px / 2) solid transparent;
-  border-bottom: calc(125px / 2) solid #ffb900;
-  border-left: calc(125px / 2) solid #ffb900;
-  border-radius: 50%;
-  
-  animation: to-up 0.2s linear infinite;
-}
-
 @keyframes to-up {
   0% {
     transform: rotate( 0deg )
